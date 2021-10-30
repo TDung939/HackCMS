@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "introduction_videos",
+  "info": {
+    "name": "Introduction Video",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "videoUrl": {
+      "type": "string"
+    }
+  }
+}

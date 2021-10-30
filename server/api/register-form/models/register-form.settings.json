@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "register_forms",
+  "info": {
+    "name": "Register Form"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "registerUrl": {
+      "type": "string"
+    }
+  }
+}

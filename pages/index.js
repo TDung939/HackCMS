@@ -1,0 +1,68 @@
+import NavBar from "@/components/Navbar/NavBar";
+import About from "views/About/App";
+import Hero from "views/Hero/App";
+import Activities from "views/Activities/App";
+import Video from "views/Video/App";
+import Speakers from "views/Speakers/App";
+import Faq from "views/FAQ/App";
+import TrollCTA from "views/TrollCTA/App";
+import { fetchAPI } from '@/lib/api';
+import Footer from "views/Footer/App";
+import AuthContext from "@/context/AuthContext";
+import { useContext } from 'react'
+import { Box } from '@chakra-ui/react'
+import ScheduleComponent from "@/components/Schedule";
+import TitlewithBoxes from "@/components/TitleswithBoxes";
+import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
+export default function Home({speakers, faq, schedule}) {
+  const {user, logout} = useContext(AuthContext)
+  return (
+    <>
+      <Box pos='sticky' top='0' zIndex='3'>
+        <NavBar />
+      </Box>
+      
+      <Hero />
+      
+      <Element name='about'>
+        <About/>
+        <Video />
+      </Element>
+
+      <Activities />
+      <Speakers speakers={speakers} />
+
+      <Element name='schedule'>
+        <Box
+        px={{
+            base: '6',
+            md: '8',
+        }}
+        py='8'
+        pos='relative'
+        maxW='7xl'
+        mx='auto'
+        >
+          <TitlewithBoxes text='Week Schedule' color='#FCCE44'/>
+          <ScheduleComponent schedule={schedule} />
+        </Box>
+      </Element>
+
+      <Element name='faq'>
+        <Faq faq={faq}/>
+      </Element>
+
+      <TrollCTA />
+      <Footer />
+    </>
+  )
+}
+
+export async function getStaticProps() {
+  const speakers = await fetchAPI("/volunteers?type=speaker")
+  const faq = await fetchAPI("/faq")
+  const schedule = await fetchAPI("/schedule")
+
+  return { props: { speakers, faq, schedule }};
+}
