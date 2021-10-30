@@ -1,9 +1,9 @@
 {
-  "name": "HackCMS",
+  "name": "hackacms",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently --kill-others \"next dev\" \"cd server && npm run develop\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -42,6 +42,7 @@
     "video-react": "^0.14.1"
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0"
   }
