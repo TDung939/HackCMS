@@ -4,6 +4,7 @@ import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
 import UserCard from '@/components/RankFrame';
+import UserStat from '@/components/UserStat/App';
 
 
 export default function Home({speakers, faq, schedule}) {
@@ -18,6 +19,7 @@ export default function Home({speakers, faq, schedule}) {
         <Center mx='auto'>
           <UserCard />
         </Center>
+        <UserStat />
       </Box>
     </Flex>
   )
