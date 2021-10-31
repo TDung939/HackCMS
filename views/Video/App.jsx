@@ -7,6 +7,7 @@ import * as React from 'react'
 import { Player, BigPlayButton, ControlBar, PosterImage } from 'video-react';
 
 const Video = ({video}) => {
+    const thumbnail = video.thumbnail? getStrapiMedia(video.thumbnail) : ''
     const uploadedVideo = video.video? getStrapiMedia(video.video) : video?.videoUrl
     return (
     <Box pos='relative' mb='12'>
@@ -35,7 +36,7 @@ const Video = ({video}) => {
             playsInline
             fluid={true}
             muted={true}
-            poster="https://images.unsplash.com/photo-1609931424192-b7cf25773e26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
+            poster={thumbnail}
             src={uploadedVideo}
             >
             <BigPlayButton position="center" />
