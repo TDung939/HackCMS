@@ -37,10 +37,10 @@ const ChangePicZone = ({user}) => {
 }
   
 
-const RankFrame = () => {
+const RankFrame = ({data}) => {
     const { user } = useContext(AuthContext)
 
-    const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/${user?.id}`, fetcher, { refreshInterval: 500 })
+    // const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/${user?.id}`, fetcher, { refreshInterval: 500 })
 
     const profileImage = data?.profile_image? getStrapiMedia(data?.profile_image) : `https://avatars.dicebear.com/api/pixel-art/${data?.username}.svg`
     let frameColor;

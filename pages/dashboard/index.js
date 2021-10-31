@@ -5,10 +5,14 @@ import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
 import UserCard from '@/components/RankFrame';
 import UserStat from '@/components/UserStat/App';
+import useSWR from 'swr';
+import axios from 'axios';
 
+const fetcher = url => axios.get(url).then(res => res.data)
 
-export default function Home({speakers, faq, schedule}) {
-  const {user, logout} = useContext(AuthContext)
+export default function Home() {
+  const { user } = useContext(AuthContext)
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/${user?.id}`, fetcher, { refreshInterval: 500 })
   return (
     <Flex>
       <Sidebar active={'dashboard'}/>
@@ -17,18 +21,18 @@ export default function Home({speakers, faq, schedule}) {
       mx='auto'
       >
         <Center mx='auto'>
-          <UserCard />
+          <UserCard data={data} />
         </Center>
-        <UserStat />
+        <UserStat data={data} />
       </Box>
     </Flex>
   )
 }
 
-export async function getStaticProps() {
-  const speakers = await fetchAPI("/volunteers?type=speaker")
-  const faq = await fetchAPI("/faq")
-  const schedule = await fetchAPI("/schedule")
+// export async function getStaticProps() {
+//   const speakers = await fetchAPI("/volunteers?type=speaker")
+//   const faq = await fetchAPI("/faq")
+//   const schedule = await fetchAPI("/schedule")
 
-  return { props: { speakers, faq, schedule }};
-}
+//   return { props: { speakers, faq, schedule }};
+// }

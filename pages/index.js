@@ -15,7 +15,7 @@ import ScheduleComponent from "@/components/Schedule";
 import TitlewithBoxes from "@/components/TitleswithBoxes";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
-export default function Home({speakers, faq, schedule}) {
+export default function Home({speakers, faq, schedule, introVideo}) {
   const {user, logout} = useContext(AuthContext)
   return (
     <>
@@ -27,7 +27,7 @@ export default function Home({speakers, faq, schedule}) {
       
       <Element name='about'>
         <About/>
-        <Video />
+        <Video video={introVideo}/>
       </Element>
 
       <Activities />
@@ -63,6 +63,7 @@ export async function getStaticProps() {
   const speakers = await fetchAPI("/volunteers?type=speaker")
   const faq = await fetchAPI("/faq")
   const schedule = await fetchAPI("/schedule")
+  const introVideo = await fetchAPI("/introduction-video")
 
-  return { props: { speakers, faq, schedule }};
+  return { props: { speakers, faq, schedule, introVideo }};
 }

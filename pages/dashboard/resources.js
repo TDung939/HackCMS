@@ -1,23 +1,27 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import { fetchAPI } from '@/lib/api';
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
 
 
-export default function Home({speakers, faq, schedule}) {
+export default function Home({resources}) {
   const {user, logout} = useContext(AuthContext)
   return (
-    <>
+    <Flex>
       <Sidebar active={'resources'}/>
-    </>
+      <Box
+      maxW='full'
+      mx='auto'
+      >
+       {resources.content}
+      </Box>
+    </Flex>
   )
 }
 
 export async function getStaticProps() {
-  const speakers = await fetchAPI("/volunteers?type=speaker")
-  const faq = await fetchAPI("/faq")
-  const schedule = await fetchAPI("/schedule")
+  const resources = await fetchAPI("/resources");
 
-  return { props: { speakers, faq, schedule }};
+  return { props: { resources }};
 }

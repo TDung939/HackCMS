@@ -2,7 +2,9 @@ import { Heading, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/
 import * as React from 'react'
 import { Stat } from './Stat'
 
-const UserStat = () => (
+const UserStat = ({data}) => {
+  console.log(data);
+  return (
   <Stack
     as="section"
     maxW="6xl"
@@ -27,14 +29,14 @@ const UserStat = () => (
     >
       <Stat
         title="Events"
-        value="2"
+        value={data?.events_attended?.length}
         accentColor={useColorModeValue('green.500', 'green.300')}
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
       </Stat>
       <Stat
         title="Challenges"
-        value="34K"
+        value={data?.challenges_done?.length}
         accentColor={useColorModeValue('blue.500', 'blue.300')}
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
@@ -48,6 +50,6 @@ const UserStat = () => (
       </Stat>
     </SimpleGrid>
   </Stack>
-)
+)}
 
 export default UserStat;

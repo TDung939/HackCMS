@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "resources",
+  "info": {
+    "name": "Resources"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

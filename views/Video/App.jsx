@@ -1,3 +1,4 @@
+import { getStrapiMedia } from '@/lib/media';
 import {
     Box,
     Heading,
@@ -5,7 +6,8 @@ import {
 import * as React from 'react'
 import { Player, BigPlayButton, ControlBar, PosterImage } from 'video-react';
 
-const Video = () => {
+const Video = ({video}) => {
+    const uploadedVideo = video.video? getStrapiMedia(video.video) : video?.videoUrl
     return (
     <Box pos='relative' mb='12'>
         <Box 
@@ -34,7 +36,7 @@ const Video = () => {
             fluid={true}
             muted={true}
             poster="https://images.unsplash.com/photo-1609931424192-b7cf25773e26?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1770&q=80"
-            src="https://zoox.com/wp-content/uploads/website-banner-1.mp4"
+            src={uploadedVideo}
             >
             <BigPlayButton position="center" />
             <ControlBar autoHide={false} style={{bg:'red'}} />
