@@ -99,14 +99,14 @@ const Hero = () => {
                 <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
                   <Text>About</Text>
                 </Link>
+
+                <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
+                  <Text>Speakers</Text>
+                </Link>
+
                 <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
                   <Text>Schedule</Text>
                 </Link>
-
-                <Text>Challenges</Text>
-
-
-                <Text>Resources</Text>
 
                 <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
                   <Text>FAQ</Text>

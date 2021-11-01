@@ -63,9 +63,6 @@
       "type": "integer",
       "default": 0
     },
-    "team_name": {
-      "type": "string"
-    },
     "events_attended": {
       "via": "users_attended",
       "collection": "event"
@@ -86,6 +83,10 @@
     },
     "vinuni_id": {
       "type": "string"
+    },
+    "team": {
+      "via": "team_member",
+      "model": "team"
     }
   }
 }

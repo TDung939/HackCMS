@@ -11,7 +11,7 @@ import Footer from "views/Footer/App";
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 import { Box } from '@chakra-ui/react'
-import ScheduleComponent from "@/components/Schedule";
+import ScheduleComponent from "@/components/Schedule/Schedule";
 import TitlewithBoxes from "@/components/TitleswithBoxes";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
@@ -31,7 +31,11 @@ export default function Home({speakers, faq, schedule, introVideo}) {
       </Element>
 
       <Activities />
-      <Speakers speakers={speakers} />
+
+      <Element name='speakers'>
+        <Speakers speakers={speakers} />
+      </Element>
+      
 
       <Element name='schedule'>
         <Box

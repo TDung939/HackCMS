@@ -2,7 +2,7 @@ import { Box, Flex, HStack } from '@chakra-ui/react'
 import { fetchAPI } from '@/lib/api';
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
-import ScheduleComponent from "@/components/Schedule";
+import ScheduleComponent from "@/components/Schedule/Schedule";
 import Sidebar from "@/components/Sidebar/App";
 
 

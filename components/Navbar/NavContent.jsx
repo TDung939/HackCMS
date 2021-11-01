@@ -18,16 +18,12 @@ const links = [
     href: 'about',
   },
   {
+    label: 'Speakers',
+    href: 'speakers',
+  },
+  {
     label: 'Schedule',
     href: 'schedule',
-  },
-  {
-    label: 'Challenges',
-    href: '#',
-  },
-  {
-    label: 'Resources',
-    href: '#',
   },
   {
     label: 'FAQ',

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_challenges_challenges",
+  "info": {
+    "name": "challenges",
+    "icon": "award"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "challenges": {
+      "collection": "challenge"
+    }
+  }
+}

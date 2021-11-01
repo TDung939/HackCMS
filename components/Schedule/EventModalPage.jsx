@@ -13,7 +13,7 @@ useToast
 } from '@chakra-ui/react'
 import * as React from 'react'
 import ReactPlayer from 'react-player'
-import SpeakerCard from './SpeakerCard/App'
+import SpeakerCard from '../SpeakerCard/App'
 import AuthContext from '@/context/AuthContext'
 import { useContext } from 'react'
 import axios from 'axios'

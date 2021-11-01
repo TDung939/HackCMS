@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "all_challenges",
+  "info": {
+    "name": "All Challenges"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "challenges": {
+      "type": "component",
+      "repeatable": true,
+      "component": "challenges.challenges"
+    }
+  }
+}

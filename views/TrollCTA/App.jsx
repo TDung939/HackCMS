@@ -78,6 +78,7 @@ const TrollCTA = () => {
                 </ButtonCTA>
                 </Center>
                 <Text mt='12' textAlign='center'>© VinUni Research Week 2021 — <Link as='marker'>Code of Conduct</Link></Text>
+                <Text mt='2' textAlign='center'>Made with <Text as="marker" mr='2'>❤️</Text>by Trung Dung</Text>
                 {/* <Center>
                     Website credit 
                     <GitHubButton href="https://github.com/TDung939/VinuniResearchWeek-site" data-size="large" aria-label="Star TDung939/VinuniResearchWeek-site on GitHub">Star</GitHubButton>

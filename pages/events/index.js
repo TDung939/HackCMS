@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import NavBar from "@/components/Navbar/NavBar";
-import ScheduleComponent from "@/components/Schedule";
+import ScheduleComponent from "@/components/Schedule/Schedule";
 import TitlewithBoxes from "@/components/TitleswithBoxes";
 import { fetchAPI } from "@/lib/api";
 import Footer from "views/Footer/App";
