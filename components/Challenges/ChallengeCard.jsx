@@ -1,17 +1,5 @@
-import { Box, Text, Heading, AvatarGroup, Avatar, Badge,
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalBody,
-    ModalCloseButton,
-    useDisclosure,
-    Fade, ScaleFade, Slide, SlideFade, Collapse, Button, Flex, Stack
-} from '@chakra-ui/react'
-import { useState, useEffect } from 'react';
-import { parseISO, isBefore, format, isAfter } from 'date-fns'
-import { getStrapiMedia } from '@/lib/media';
-import EventModalPage from '../Schedule/EventModalPage';
+import { Box, Heading, Badge, Link, useDisclosure, Collapse, Button, Flex } from '@chakra-ui/react'
+import { useState } from 'react';
 
 
 export default function ChallengeCard({ challenge }) {
@@ -31,31 +19,6 @@ export default function ChallengeCard({ challenge }) {
 
     return (
         <Box marginBottom='24px' mr='8' cursor='pointer'>
-             {/* <Modal isOpen={isOpen} onClose={onClose} size='6xl' scrollBehavior='inside'>
-                <ModalOverlay />
-                <ModalContent>
-                <ModalHeader>
-                    <Heading
-                    fontWeight='700'
-                    margin='0'
-                    lineHeight='1.4'
-                    width='100%'
-                    >
-                    {event.title}
-                    </Heading>
-                    <Badge 
-                    size='xs'
-                    border={`1px solid ${typeBadgeColor}`}
-                    bg={`${typeBadgeColor}30`}
-                    color={typeBadgeColor}
-                    >{typeBadge}</Badge>
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    <EventModalPage event={event}/>
-                </ModalBody>
-                </ModalContent>
-          </Modal> */}
                 <Box
                 display='block'
                 borderRadius='xl'
@@ -98,10 +61,11 @@ export default function ChallengeCard({ challenge }) {
                     <Button width='full' size='xs' onClick={handleToggle} mt='2'>
                         Show {show ? "Less" : "More"}
                     </Button>
-                    <Button width='full' onClick={handleToggle} mt='2'>
-                        SUBMIT
-                    </Button>
-        
+                    <Link href={challenge?.submissionUrl} isExternal>
+                        <Button width='full' mt='2'>
+                            SUBMIT
+                        </Button>
+                    </Link>
                     
                 </Box>
                 </Box>

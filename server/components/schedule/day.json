@@ -11,7 +11,8 @@
       "collection": "event"
     },
     "date": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

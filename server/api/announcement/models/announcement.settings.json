@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "teams",
+  "collectionName": "announcements",
   "info": {
-    "name": "team",
+    "name": "announcement",
     "description": ""
   },
   "options": {
@@ -12,14 +12,18 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "team_member": {
-      "via": "team",
-      "plugin": "users-permissions",
-      "collection": "user"
+    "content": {
+      "type": "richtext",
+      "required": true
+    },
+    "isImportant": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

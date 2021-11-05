@@ -2,12 +2,14 @@
   "collectionName": "components_challenges_challenges",
   "info": {
     "name": "challenges",
-    "icon": "award"
+    "icon": "award",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "type": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "challenges": {
       "collection": "challenge"
