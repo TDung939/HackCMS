@@ -3,7 +3,15 @@ import * as React from 'react'
 import { Stat } from './Stat'
 
 const UserStat = ({data}) => {
-  console.log(data);
+  const eventsAttended = data?.events_attended
+  // Object.filter = (obj, predicate) => 
+  //   Object.keys(obj)
+  //         .filter( key => predicate(obj[key]) )
+  //         .reduce( (res, key) => (res[key] = obj[key], res), {} );
+  var filteredWorkshops = eventsAttended? Object.filter(eventsAttended, eventAttended => eventAttended.type == 'workshop') : 0; 
+  var filteredMiniEvents = eventsAttended? Object.filter(eventsAttended, eventAttended => eventAttended.type == 'mini_event') : 0; 
+  console.log(filteredWorkshops);
+  console.log(filteredMiniEvents);
   return (
   <Stack
     as="section"
@@ -41,13 +49,13 @@ const UserStat = ({data}) => {
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
       </Stat>
-      <Stat
+      {/* <Stat
         title="No of Challenges"
         value="2"
         accentColor={useColorModeValue('pink.500', 'pink.300')}
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
-      </Stat>
+      </Stat> */}
     </SimpleGrid>
   </Stack>
 )}

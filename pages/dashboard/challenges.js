@@ -11,7 +11,7 @@ export default function Home({speakers, faq, schedule}) {
   return (
     <Flex>
       <Sidebar active={'challenges'}/>
-     <ChallengesComponent />
+      <ChallengesComponent />
     </Flex>
   )
 }

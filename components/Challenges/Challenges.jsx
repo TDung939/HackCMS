@@ -46,7 +46,6 @@ function ChallengeRow({challenges}) {
 export default function ChallengesComponent() {
   const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/all-challenges`, fetcher, { refreshInterval: 500 })
   const challenges = data? data.challenges : null
-  console.log(challenges)
   return (
     <Box
     mx='auto'

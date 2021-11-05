@@ -6,7 +6,6 @@ import Sidebar from "@/components/Sidebar/App";
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
 import { RichTextTheme } from '@/lib/richtext_theme';
-import styles from 'styles/Article.module.css'
 
 export default function Home({resources}) {
   const {user, logout} = useContext(AuthContext)
@@ -23,7 +22,6 @@ export default function Home({resources}) {
             base: '6',
             md: '8',
         }}
-        style={styles}
         >
           <ReactMarkdown
           components={ChakraUIRenderer(RichTextTheme)}

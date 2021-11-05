@@ -1,23 +1,73 @@
-import { Box } from '@chakra-ui/react'
-import { fetchAPI } from '@/lib/api';
+import { Box, Flex, Text, Heading, Img, Badge } from '@chakra-ui/react'
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
+import useSWR from 'swr';
+import axios from 'axios';
+import TitlewithBoxes from '@/components/TitleswithBoxes';
+import moment from 'moment';
+import ReactMarkdown from 'react-markdown'
+import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
+import { RichTextTheme } from '@/lib/richtext_theme';
+
+const fetcher = url => axios.get(url).then(res => res.data)
 
 
 export default function Home({speakers, faq, schedule}) {
-  const {user, logout} = useContext(AuthContext)
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/announcements?_sort=published_at:DESC`, fetcher, { refreshInterval: 500 })
   return (
-    <>
+    <Flex>
       <Sidebar active={'announcements'}/>
-    </>
+      <Box mx='12' my='4'>
+        <TitlewithBoxes text='Recent Announcements'  color='#76E094'/>
+        <Box my='20'>
+            {data?.slice(0,1).map((item, idx)=>(
+              <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
+            ))}
+        </Box>
+        <TitlewithBoxes text='Past announcements'  color='#76E094'/>
+        <Box my='20'>
+            {data?.slice(1,).map((item, idx)=>(
+              <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
+            ))}
+        </Box>
+      </Box>
+    </Flex>
   )
 }
 
-export async function getStaticProps() {
-  const speakers = await fetchAPI("/volunteers?type=speaker")
-  const faq = await fetchAPI("/faq")
-  const schedule = await fetchAPI("/schedule")
-
-  return { props: { speakers, faq, schedule }};
+function AnnouncementCard (props) {
+  const { title, content, date, isImportant } = props;
+  return (
+    <Box
+    px='8'
+    py='4'
+    my='8'
+    rounded='xl'
+    backgroundClip='content-box, border-box'
+    border={`1px solid #76E094`}
+    _hover={{
+        transform:'translate(-5px, 4px)',
+        boxShadow:`-5px 4px 0px 1px #76E094`
+    }}
+    boxShadow= {`-10px 8px 0px 1px #76E094`}
+    pos='relative'
+    >
+        <Flex align='center' justify='space-between' >
+          <Heading fontSize='4xl'>{title}</Heading>
+         <Badge 
+            display={isImportant? 'block' : 'none'}
+            border={`1px solid #C64F4B`}
+            bg={`#C64F4B30`}
+            color='#C64F4B'
+         >Important</Badge>
+        </Flex>
+        
+        <Text>Posted on {moment(date).format('DD/MM/YYYY')}</Text>
+        <ReactMarkdown
+          components={ChakraUIRenderer(RichTextTheme)}
+          escapeHtml={false}
+          >{content}</ReactMarkdown>
+    </Box>
+  )
 }
