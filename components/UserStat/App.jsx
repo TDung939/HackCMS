@@ -4,14 +4,6 @@ import { Stat } from './Stat'
 
 const UserStat = ({data}) => {
   const eventsAttended = data?.events_attended
-  // Object.filter = (obj, predicate) => 
-  //   Object.keys(obj)
-  //         .filter( key => predicate(obj[key]) )
-  //         .reduce( (res, key) => (res[key] = obj[key], res), {} );
-  var filteredWorkshops = eventsAttended? Object.filter(eventsAttended, eventAttended => eventAttended.type == 'workshop') : 0; 
-  var filteredMiniEvents = eventsAttended? Object.filter(eventsAttended, eventAttended => eventAttended.type == 'mini_event') : 0; 
-  console.log(filteredWorkshops);
-  console.log(filteredMiniEvents);
   return (
   <Stack
     as="section"
