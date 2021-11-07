@@ -1,15 +1,14 @@
-import { Box, Flex, keyframes, usePrefersReducedMotion } from '@chakra-ui/react'
+import { Box, Flex, keyframes, usePrefersReducedMotion, HStack, Text, Center, Img } from '@chakra-ui/react'
+import Router from 'next/router'
 import * as React from 'react'
-import { NavContent } from './NavContent'
 import { useState, useEffect } from 'react'
-
+import { Link } from 'react-scroll'
 const show = keyframes`
   from { opacity: 0;}
   to { opacity: 1;}
 `
 
-
-const NavBar = () => {
+const NavBar = ({registerForm}) => {
     const prefersReducedMotion = usePrefersReducedMotion()
     const animation = prefersReducedMotion
       ? undefined
@@ -37,49 +36,45 @@ const NavBar = () => {
   
   return (
   <Box
-  display={scrollY > 145 ? 'block' : 'none'}
-  animation= {scrollY > 145 ? animation : null}
+  display={scrollY > 250 ? 'block' : 'none'}
+  animation= {scrollY > 250 ? animation : null}
   >
     <Box as="header" height="20" position="relative" bg='white' border='1px solid rgba(0,0,0,0.1)'
-    // style={{background:'hsla(0,0%,100%,0.8)', backdropFilter:'blur(8px)', border: '1px solid rgba(0,0,0,0.1)'}}
     >
       <Box
         height="100%"
-        maxW="7xl"
+        maxW="6xl"
         mx="auto"
-        ps={{
-          base: '6',
-          md: '8',
-        }}
-        pe={{
-          base: '5',
-          md: '0',
+        px={{
+            base: '6',
+            md: '8',
         }}
         
       >
-        <Flex
-          as="nav"
-          aria-label="Site navigation"
-          align="center"
-          height="100%"
-          justify='space-between'
-        >
-          <Box>
-            {/* <Img src='/glasses/green-glasses.svg' height='12' mr='8'/> */}
-          </Box>
-          <NavContent.Desktop
-            display={{
-              base: 'none',
-              md: 'flex',
-            }}
-          />
-          <NavContent.Mobile
-            display={{
-              base: 'flex',
-              md: 'none',
-            }}
-          />
-        </Flex>
+        <Flex justify='space-between' align='start' mt='4' display={{base:'none', lg:'flex'}} pos='sticky' zIndex='4'>
+              {/* <Img src='/logo_black.svg' width={{base:'120px', lg:'240px'}}/> */}
+              <HStack fontFamily='Raleway' fontWeight='bold' fontSize='2xl' spacing='12' cursor='pointer'>
+                <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
+                  <Text>About</Text>
+                </Link>
+
+                <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
+                  <Text>Speakers</Text>
+                </Link>
+
+                <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
+                  <Text>Schedule</Text>
+                </Link>
+
+                <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
+                  <Text>FAQ</Text>
+                </Link>
+              </HStack>
+              <Center pos='relative' width='120px' height='120px' bg='white' rounded='full'>
+                <Text align='center' fontFamily='Raleway' fontWeight='bold' fontSize='lg'>Register<br/>Now</Text>
+                <Img src='/register-cta.svg' className='Register-cta' pos='absolute' top='0' onClick={() => Router.push(registerForm.registerUrl)}/>
+              </Center>
+              </Flex>
       </Box>
     </Box>
   </Box>

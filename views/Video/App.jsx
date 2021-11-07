@@ -29,7 +29,7 @@ const Video = ({video}) => {
             >
             <Box
             rounded='xl'
-            border='15px solid #ED5D4350'
+            border='15px solid white'
             boxShadow=' -24px 21px 0px 1px #ED5D43'
             >
             <Player

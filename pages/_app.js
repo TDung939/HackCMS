@@ -6,7 +6,8 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NextNprogress from 'nextjs-progressbar';
 import "styles/video-react.css";
-import "@fontsource/raleway"
+import "styles/fonts.css";
+import "styles/animation.css";
 
 export const newTheme = {
   ...theme,

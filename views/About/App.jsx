@@ -2,6 +2,7 @@ import {
     Box,
     Text,
     Heading,
+    Img
 } from '@chakra-ui/react'
 import { useState } from 'react';
 import * as React from 'react'
@@ -10,7 +11,7 @@ const About = () => {
     return (
     <Box pos='relative' 
     as="section" 
-    maxW='7xl'
+    maxW='6xl'
     mx='auto'
     px={{
         base: '6',
@@ -22,7 +23,6 @@ const About = () => {
         as="section" 
         >
             <Box
-            py={{base:'0',lg:"12"}}
             maxW={{
                 base: 'xl',
                 md: '6xl',
@@ -35,15 +35,7 @@ const About = () => {
             pos='relative'
             >
             <Box mt='4'>
-                <Heading
-                as="h1"
-                fontSize={{base:'xl', lg:'5xl'}}
-                fontWeight="extrabold"
-                lineHeight="1.2"
-                textAlign='center'
-                >
-                About VRW:KICKSTART!
-                </Heading>
+                <Img src='/program.png' mx='auto' draggable={false}/>
                 <Text
                 textAlign='center'
                 mx='auto'

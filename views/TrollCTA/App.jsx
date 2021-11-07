@@ -11,7 +11,7 @@ import ButtonCTA from '@/components/ButtonCTA';
 import Router from 'next/router';
 // import GitHubButton from 'react-github-btn'
 
-const TrollCTA = () => {
+const TrollCTA = ({registerForm}) => {
     const {windowWidth, windowHeight} = useWindowSize()
     const [posX, setPosX] = useState(windowWidth)
     const [posY, setPosY] = useState(windowHeight/2)
@@ -32,7 +32,7 @@ const TrollCTA = () => {
             case 5: {setButtonText('Gotcha hahaha'); break;}
             case 6: {setButtonText('Wow you are very persistent'); break;}
             case 7: {setButtonText('I like you. Have fun then!'); break;}
-            case 8: {window.open('#', "_blank"); break;}
+            case 8: {window.open(registerForm.registerUrl, "_blank"); break;}
             case 9: {setButtonText('Erm... you still here?'); break;}
             case 10: {setButtonText('Go sign up...'); break;}
             case 11: {setButtonText('This is getting old...'); break;}

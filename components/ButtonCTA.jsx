@@ -10,7 +10,7 @@ const ButtonCTA = (props) => {
     px='28'
     fontFamily='Raleway'
     fontWeight='800'
-    border='8px solid #221F20'
+    border='8px solid white'
     fontSize='2xl'
     boxShadow=' -10px 8px 0px 1px #221F20'
     _hover={{
