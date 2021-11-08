@@ -12,6 +12,7 @@ const SecondaryButton = (props) => {
     fontWeight='bold'
     border='8px solid white'
     fontSize='xl'
+    rounded='none'
     boxShadow=' -10px 8px 0px 1px black'
     _hover={{
       transform:'translate(-5px, 4px)',

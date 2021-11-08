@@ -9,6 +9,7 @@ const ButtonCTA = (props) => {
     py='14'
     px='28'
     fontFamily='Raleway'
+    rounded='none'
     fontWeight='800'
     border='8px solid white'
     fontSize='2xl'

@@ -2,17 +2,14 @@ import NavBar from "@/components/Navbar/NavBar";
 import About from "views/About/App";
 import Hero from "views/Hero/App";
 import Activities from "views/Activities/App";
-import Video from "views/Video/App";
 import Speakers from "views/Speakers/App";
 import Faq from "views/FAQ/App";
 import TrollCTA from "views/TrollCTA/App";
 import { fetchAPI } from '@/lib/api';
-import Footer from "views/Footer/App";
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
-import TitlewithBoxes from "@/components/TitleswithBoxes";
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
@@ -26,8 +23,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
       <Hero registerForm={registerForm}/>
       
       <Element name='about'>
-        <About/>
-        <Video video={introVideo}/>
+        <About video={introVideo}/>
       </Element>
 
       <Activities />
@@ -39,16 +35,18 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
 
       <Element name='schedule'>
         <Box
+        as='section'
         px={{
             base: '6',
             md: '8',
         }}
         py='8'
         pos='relative'
-        maxW='7xl'
+        maxW='6xl'
         mx='auto'
+        mt='112px'
         >
-          <TitlewithBoxes text='Week Schedule' color='#FCCE44'/>
+          <Heading fontFamily='Space Mono' fontSize='48px'>Week Schdeule</Heading>
           <ScheduleComponent schedule={schedule} />
         </Box>
       </Element>
@@ -58,7 +56,6 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
       </Element>
 
       <TrollCTA registerForm={registerForm}/>
-      <Footer />
     </>
   )
 }

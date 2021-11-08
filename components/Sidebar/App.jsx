@@ -42,7 +42,7 @@ const Sidebar = (props) => {
         </Flex>
       </Link>
       <Box mb={8}>
-        <Img w='250px' src='/logo_black.svg'/>
+        <Img w='250px' src='/logo.svg'/>
       </Box>
       <Stack spacing={6}>
         <Stack>

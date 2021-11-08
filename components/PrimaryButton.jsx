@@ -8,6 +8,7 @@ const PrimaryButton = (props) => {
     bg='#FCCE44'
     py='8'
     px='12'
+    rounded='none'
     fontFamily='Raleway'
     fontWeight='800'
     border='8px solid white'

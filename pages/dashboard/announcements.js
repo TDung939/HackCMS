@@ -4,7 +4,6 @@ import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
 import useSWR from 'swr';
 import axios from 'axios';
-import TitlewithBoxes from '@/components/TitleswithBoxes';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown'
 import ChakraUIRenderer from 'chakra-ui-markdown-renderer';
@@ -19,14 +18,14 @@ export default function Home({speakers, faq, schedule}) {
     <Flex>
       <Sidebar active={'announcements'}/>
       <Box mx='12' my='4'>
-        <TitlewithBoxes text='Recent Announcements'  color='#76E094'/>
-        <Box my='20'>
+        <Heading fontFamily='Space Mono' fontSize='48px'>Recent announcements</Heading>
+        <Box my='12' maxW='2xl'>
             {data?.slice(0,1).map((item, idx)=>(
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
             ))}
         </Box>
-        <TitlewithBoxes text='Past announcements'  color='#76E094'/>
-        <Box my='20'>
+        <Heading fontFamily='Space Mono' fontSize='48px'>Past announcements</Heading>
+        <Box my='12'>
             {data?.slice(1,).map((item, idx)=>(
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
             ))}
@@ -54,7 +53,7 @@ function AnnouncementCard (props) {
     pos='relative'
     >
         <Flex align='center' justify='space-between' >
-          <Heading fontSize='4xl'>{title}</Heading>
+          <Heading fontSize='2xl'>{title}</Heading>
          <Badge 
             display={isImportant? 'block' : 'none'}
             border={`1px solid #C64F4B`}

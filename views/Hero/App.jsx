@@ -49,22 +49,25 @@ const Hero = ({registerForm}) => {
     let display;
     if (user) {
       display= (
-      <Stack mt={{base: '4', lg: '8'}} mb='8' spacing='8' direction={{base:'column', lg:'row'}}>
+      <Stack mt={{base: '4', lg: '8'}}  spacing='8' direction={{base:'column', lg:'row'}}>
         <PrimaryButton zIndex='2' onClick={() => Router.push('/dashboard')}>DASHBOARD</PrimaryButton>
         <SecondaryButton zIndex='2'  onClick={() => logout()}>SIGN OUT</SecondaryButton>
       </Stack>
       )
     } else {
       display= (
-      <Stack mt={{base: '4', lg: '8'}} mb='8' spacing='8' direction={{base:'column', lg:'row'}}>
+      <Stack mt={{base: '4', lg: '8'}}  spacing='8' direction={{base:'column', lg:'row'}}>
         <PrimaryButton zIndex='2' onClick={()=>Router.push(registerForm.registerUrl)}>REGISTER</PrimaryButton>
         <SecondaryButton zIndex='2' onClick={onOpen}>SIGN IN</SecondaryButton>
       </Stack>)
     }
 
     return (
-    <Box>
-        <Box as="section">
+    <Box
+    mt='8'
+    as="section"
+    >
+        <Box >
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
@@ -85,7 +88,6 @@ const Hero = ({registerForm}) => {
                 base: '6',
                 md: '8',
             }}
-            py='4'
             pos='relative'
             >
               <Flex justify='space-between' align='center' display={{base:'none', lg:'flex'}}>
@@ -109,7 +111,7 @@ const Hero = ({registerForm}) => {
                 </HStack>
               </Flex>
               <Box
-              mt='24px'
+              mt='50px'
               pt='100px' 
               backgroundImage={'url(/Hero.svg)'}
               backgroundRepeat='no-repeat'
@@ -123,7 +125,7 @@ const Hero = ({registerForm}) => {
                 </Box>
               </Box>
              
-              <HStack mt='4' justify='center' spacing='12'>
+              <HStack mt='8' justify='center' spacing='12'>
                <Img src='/logos/vinuni.png'/>
                <Img src='/logos/vinmaker.png'/>
                <Img src='/logos/vrc.png'/>
