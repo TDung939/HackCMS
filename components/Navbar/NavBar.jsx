@@ -39,7 +39,7 @@ const NavBar = ({registerForm}) => {
   display={scrollY > 250 ? 'block' : 'none'}
   animation= {scrollY > 250 ? animation : null}
   >
-    <Box as="header" height="20" position="relative" bg='white' border='1px solid rgba(0,0,0,0.1)'
+    <Box as="header" position="relative" bg='white' border='1px solid rgba(0,0,0,0.1)'
     >
       <Box
         height="100%"
@@ -49,11 +49,11 @@ const NavBar = ({registerForm}) => {
             base: '6',
             md: '8',
         }}
-        
+        py='4'
       >
-        <Flex justify='space-between' align='start' mt='4' display={{base:'none', lg:'flex'}} pos='sticky' zIndex='4'>
-              {/* <Img src='/logo_black.svg' width={{base:'120px', lg:'240px'}}/> */}
-              <HStack fontFamily='Raleway' fontWeight='bold' fontSize='2xl' spacing='12' cursor='pointer'>
+        <Flex justify='space-between' align='center' display={{base:'none', lg:'flex'}} pos='sticky'>
+              <Img src='/logo.svg' height='80px'/>
+              <HStack fontFamily='Work Sans' align='center' fontWeight='semibold' fontSize='18px' spacing='12' cursor='pointer'>
                 <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
                   <Text>About</Text>
                 </Link>
@@ -70,10 +70,10 @@ const NavBar = ({registerForm}) => {
                   <Text>FAQ</Text>
                 </Link>
               </HStack>
-              <Center pos='relative' width='120px' height='120px' bg='white' rounded='full'>
+              {/* <Center pos='relative' width='120px' height='120px' bg='white' rounded='full'>
                 <Text align='center' fontFamily='Raleway' fontWeight='bold' fontSize='lg'>Register<br/>Now</Text>
                 <Img src='/register-cta.svg' className='Register-cta' pos='absolute' top='0' onClick={() => Router.push(registerForm.registerUrl)}/>
-              </Center>
+              </Center> */}
               </Flex>
       </Box>
     </Box>

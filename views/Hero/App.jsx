@@ -89,63 +89,41 @@ const Hero = ({registerForm}) => {
             pos='relative'
             >
               <Flex justify='space-between' align='center' display={{base:'none', lg:'flex'}}>
-              {/* <Img src='/logo_black.svg' width={{base:'120px', lg:'240px'}}/> */}
-              <HStack fontFamily='Raleway' fontWeight='bold' fontSize='2xl' spacing='12' cursor='pointer'>
-                <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
-                  <Text>About</Text>
-                </Link>
+                <Img src='/logo.svg' height='80px'/>
+                <HStack fontFamily='Work Sans' fontWeight='semibold' fontSize='18px' spacing='12' cursor='pointer'>
+                  <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>About</Text>
+                  </Link>
 
-                <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
-                  <Text>Speakers</Text>
-                </Link>
+                  <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>Speakers</Text>
+                  </Link>
 
-                <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
-                  <Text>Schedule</Text>
-                </Link>
+                  <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>Schedule</Text>
+                  </Link>
 
-                <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
-                  <Text>FAQ</Text>
-                </Link>
-              </HStack>
-              <Center pos='relative' width='120px' height='120px'>
-                <Text align='center' fontFamily='Raleway' fontWeight='bold' fontSize='lg'>Register<br/>Now</Text>
-                <Img src='/register-cta.svg' className='Register-cta' pos='absolute' top='0'  onClick={() => Router.push(registerForm.registerUrl)}/>
-              </Center>
-             
+                  <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>FAQ</Text>
+                  </Link>
+                </HStack>
               </Flex>
-              <Marquee speed={150} gradient={false}>
-                <Heading  style={{fontWeight:'900'}}  fontSize={{base:'2xl',lg:'8xl'}} overflow='hidden'>
-                  VINUNI <span style={{color:'#535ED2'}}>RESEARCH</span> BOOTCAMP <span style={{color:'#FFCA27'}}>2021</span> &nbsp;
-                </Heading>
-              </Marquee>
-              <Box pos='relative'>
-                <Img src='/kickstart.png' height='250px' draggable={false}/>
-                <Box  pos='absolute' top='0' right='0' zIndex={-1}>
-                <Tilt
-                glareEnable={true}
-                scale={1}
-                tiltMaxAngleX={5}
-                tiltMaxAngleY={5}
-                trackOnWindow={true}
-                >
-                  <Img src='/hero_image.png' draggable={false}/>
-                </Tilt>
-                </Box>
-              
+              <Box
+              mt='24px'
+              pt='100px' 
+              backgroundImage={'url(/Hero.svg)'}
+              backgroundRepeat='no-repeat'
+              backgroundSize='contain'
+              backgroundPosition='right'
+              >
+                <Heading fontFamily='Space Mono' fontWeight='bold' fontSize='64px' maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
+                <Heading color='#FFCA27' my='25px' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
                 <Box>
-                  <Countdown
-                    zeroPadTime={2}
-                    zeroPadDays={2}
-                    date='2021-12-05'
-                    renderer={renderer}
-                  />
-                  <Heading color='#FFCA27' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
+                {display}
                 </Box>
               </Box>
-              <Box>
-              {display}
-              </Box>
-              <HStack mt='4' justify='center'>
+             
+              <HStack mt='4' justify='center' spacing='12'>
                <Img src='/logos/vinuni.png'/>
                <Img src='/logos/vinmaker.png'/>
                <Img src='/logos/vrc.png'/>
