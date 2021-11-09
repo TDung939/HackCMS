@@ -21,7 +21,7 @@ const Video = ({video}) => {
         src={uploadedVideo}
         >
         <BigPlayButton position="center" />
-        <ControlBar autoHide={false} style={{bg:'red'}} />
+        <ControlBar autoHide={false} />
         </Player>
     </Box>
     )
