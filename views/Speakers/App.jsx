@@ -1,6 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react'
 import * as React from 'react'
-import SpeakersSlider from '@/components/TeamWithCentredLayout/App';
+import SpeakersSlider from '@/components/SpeakerSlider/App';
 
 
 const Speakers = ({speakers}) => {

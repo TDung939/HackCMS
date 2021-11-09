@@ -10,7 +10,7 @@ import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 import { Box, Heading } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element, animateScroll as scroll } from 'react-scroll'
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
   const {user, logout} = useContext(AuthContext)
@@ -47,7 +47,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         mt='112px'
         >
           <Heading fontFamily='Space Mono' fontSize='48px'>Week Schdeule</Heading>
-          <ScheduleComponent schedule={schedule} />
+          <ScheduleComponent />
         </Box>
       </Element>
 
@@ -60,12 +60,12 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
   )
 }
 
-export async function getStaticProps() {
-  const speakers = await fetchAPI("/volunteers?type=speaker")
-  const faq = await fetchAPI("/faq")
-  const schedule = await fetchAPI("/schedule")
-  const introVideo = await fetchAPI("/introduction-video")
-  const registerForm = await fetchAPI("/register-form")
-
-  return { props: { speakers, faq, schedule, introVideo, registerForm }};
+export async function getServerSideProps({context, req }) {
+  const [speakers, faq, introVideo, registerForm] = await Promise.all([
+    fetchAPI("/volunteers?type=speaker"),
+    fetchAPI("/faq"),
+    fetchAPI("/introduction-video"),
+    fetchAPI("/register-form")
+  ]);
+  return { props: { speakers, faq, introVideo, registerForm }};
 }
