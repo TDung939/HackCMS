@@ -31,7 +31,7 @@ export default function Home({speakers, faq, schedule}) {
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
             ))}
         </Box>
-        <Heading display={data.length > 1? 'block' : 'none' } fontFamily='Space Mono' fontSize='48px'>Past announcements</Heading>
+        <Heading display={data?.length > 1? 'block' : 'none' } fontFamily='Space Mono' fontSize='48px'>Past announcements</Heading>
         <Box my='12'>
             {data?.slice(1,).map((item, idx)=>(
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
