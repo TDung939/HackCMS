@@ -1,6 +1,13 @@
-import { Box, Flex, Text, Heading, Img, Badge } from '@chakra-ui/react'
-import AuthContext from "@/context/AuthContext";
-import { useContext } from 'react'
+import { Box, Flex, Text, Heading, Img, Badge, Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 import Sidebar from "@/components/Sidebar/App";
 import useSWR from 'swr';
 import axios from 'axios';
@@ -24,7 +31,7 @@ export default function Home({speakers, faq, schedule}) {
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
             ))}
         </Box>
-        <Heading fontFamily='Space Mono' fontSize='48px'>Past announcements</Heading>
+        <Heading display={data.length > 1? 'block' : 'none' } fontFamily='Space Mono' fontSize='48px'>Past announcements</Heading>
         <Box my='12'>
             {data?.slice(1,).map((item, idx)=>(
               <AnnouncementCard title={item.title} content={item.content} date={item.published_at} isImportant={item.isImportant} key={idx}/>
@@ -37,6 +44,7 @@ export default function Home({speakers, faq, schedule}) {
 
 function AnnouncementCard (props) {
   const { title, content, date, isImportant } = props;
+  const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <Box
     px='8'
@@ -51,22 +59,40 @@ function AnnouncementCard (props) {
     }}
     boxShadow= {`-10px 8px 0px 1px #76E094`}
     pos='relative'
+    onClick={onOpen}
     >
-        <Flex align='center' justify='space-between' >
-          <Heading fontSize='2xl'>{title}</Heading>
-         <Badge 
-            display={isImportant? 'block' : 'none'}
-            border={`1px solid #C64F4B`}
-            bg={`#C64F4B30`}
-            color='#C64F4B'
-         >Important</Badge>
-        </Flex>
-        
-        <Text>Posted on {moment(date).format('DD/MM/YYYY')}</Text>
-        <ReactMarkdown
-          components={ChakraUIRenderer(RichTextTheme)}
-          escapeHtml={false}
-          >{content}</ReactMarkdown>
+      <Modal isOpen={isOpen} onClose={onClose} scrollBehavior='inside' size='6xl'>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{title}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <ReactMarkdown
+              components={ChakraUIRenderer(RichTextTheme)}
+              escapeHtml={false}
+              >{content}
+            </ReactMarkdown>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={onClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      <Flex align='center' justify='space-between' >
+        <Heading fontSize='2xl'>{title}</Heading>
+        <Badge 
+          display={isImportant? 'block' : 'none'}
+          border={`1px solid #C64F4B`}
+          bg={`#C64F4B30`}
+          color='#C64F4B'
+        >Important</Badge>
+      </Flex>
+    
+      <Text>Posted on {moment(date).format('DD/MM/YYYY')}</Text>
+    
     </Box>
   )
 }
