@@ -28,11 +28,3 @@ export default function Home() {
     </Flex>
   )
 }
-
-// export async function getStaticProps() {
-//   const speakers = await fetchAPI("/volunteers?type=speaker")
-//   const faq = await fetchAPI("/faq")
-//   const schedule = await fetchAPI("/schedule")
-
-//   return { props: { speakers, faq, schedule }};
-// }

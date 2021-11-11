@@ -5,19 +5,11 @@ import { useContext } from 'react'
 import Sidebar from "@/components/Sidebar/App";
 
 
-export default function Home({speakers, faq, schedule}) {
+export default function Home() {
   const {user, logout} = useContext(AuthContext)
   return (
     <>
       <Sidebar active={'help-center'}/>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const speakers = await fetchAPI("/volunteers?type=speaker")
-  const faq = await fetchAPI("/faq")
-  const schedule = await fetchAPI("/schedule")
-
-  return { props: { speakers, faq, schedule }};
 }

@@ -19,7 +19,7 @@ import { RichTextTheme } from '@/lib/richtext_theme';
 const fetcher = url => axios.get(url).then(res => res.data)
 
 
-export default function Home({speakers, faq, schedule}) {
+export default function Home() {
   const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/announcements?_sort=published_at:DESC`, fetcher, { refreshInterval: 500 })
   return (
     <Flex>
