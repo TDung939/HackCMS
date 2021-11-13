@@ -8,15 +8,18 @@ import TrollCTA from "views/TrollCTA/App";
 import { fetchAPI } from '@/lib/api';
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
-import { Box, Heading, Img } from '@chakra-ui/react'
+import { Box, Heading, Img, Text } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
 import { Element, animateScroll as scroll } from 'react-scroll'
 import Marquee from "react-fast-marquee";
+import Seo from "@/components/Seo";
+import moment from "moment";
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
-  const {user, logout} = useContext(AuthContext)
+  console.log(schedule);
   return (
     <>
+      <Seo title='VinUni Research Bootcamp' content='VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.'/>
       <Box pos='sticky' top='0' zIndex='3'>
         <NavBar registerForm={registerForm}/>
       </Box>
@@ -34,14 +37,31 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         py='8'
         pos='relative'
         mx='auto'
+        maxW='7xl'
         mt='112px'
         >
         <Marquee speed='120' >
-          <Img mx='2' src='/swag/shirt_white.jpeg' height='320px' draggable={false}/>
+          <Box>
+            <Img mx='2' src='/swag/shirt_white.jpeg' height='320px' draggable={false}/>
+            <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>T-Shirts</Text>
+          </Box>
+
+          <Box>
+            <Img mx='2' src='/swag/notebook.jpeg' height='320px' draggable={false}/>
+            <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Notebooks</Text>
+          </Box>
+
+          <Box>
+            <Img mx='2' src='/swag/pin_button.jpeg' height='320px' draggable={false}/>
+            <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Pin Buttons</Text>
+          </Box>
+          
           {/* <Img mx='2' src='/swag/shirt_black.jpeg' height='320px' draggable={false}/> */}
-          <Img mx='2' src='/swag/notebook.jpeg' height='320px' draggable={false}/>
-          <Img mx='2' src='/swag/pin_button.jpeg' height='320px' draggable={false}/>
-          <Img mx='2' src='/swag/canvas_bag.jpeg' height='320px' draggable={false}/>
+          <Box>
+            <Img mx='2' src='/swag/canvas_bag.jpeg' height='320px' draggable={false}/>
+            <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Tote Bags</Text>
+          </Box>
+          
         </Marquee>
       </Box>
     
@@ -65,6 +85,8 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         mt='112px'
         >
           <Heading fontFamily='Space Mono' fontSize='48px'>Week Schedule</Heading>
+          <Text fontFamily='Work Sans' fontStyle='italic'>Subject to change</Text>
+          <Text fontFamily='Work Sans' fontStyle='italic'>Last updated: {moment(schedule[0].updated_at).format('DD, MMMM, YYYY')}</Text>
           <ScheduleComponent />
         </Box>
       </Element>
@@ -89,11 +111,12 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
 }
 
 export async function getServerSideProps({context, req }) {
-  const [speakers, faq, introVideo, registerForm] = await Promise.all([
+  const [speakers, schedule, faq, introVideo, registerForm] = await Promise.all([
     fetchAPI("/volunteers?type=speaker"),
+    fetchAPI("/schedule"),
     fetchAPI("/faq"),
     fetchAPI("/introduction-video"),
     fetchAPI("/register-form")
   ]);
-  return { props: { speakers, faq, introVideo, registerForm }};
+  return { props: { speakers, schedule, faq, introVideo, registerForm }};
 }
