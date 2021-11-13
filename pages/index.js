@@ -16,7 +16,6 @@ import Seo from "@/components/Seo";
 import moment from "moment";
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
-  console.log(schedule);
   return (
     <>
       <Seo title='VinUni Research Bootcamp' content='VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.'/>
