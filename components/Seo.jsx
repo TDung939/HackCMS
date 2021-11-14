@@ -13,19 +13,19 @@ const Seo = (props) => {
           description: `${content}`,
           images: [
             {
-              url: `${'/cover.png'}`,
+              url: 'https://vinuniresearchbootcamp.org/cover.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt',
             },
             {
-              url: `${'/cover.png'}`,
+              url: 'https://vinuniresearchbootcamp.org/cover.png',
               width: 900,
               height: 800,
               alt: 'Og Image Alt Second',
             },
-            { url: `${'/cover.png'}` },
-            { url: `${'/cover.png'}` },
+            { url: 'https://vinuniresearchbootcamp.org/cover.png'},
+            { url: 'https://vinuniresearchbootcamp.org/cover.png' },
           ],
           site_name: 'VinUni Research Bootcamp 2021',
         }}
