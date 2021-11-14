@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import * as React from 'react'
 import SpeakersSlider from '@/components/SpeakerSlider/App';
 
@@ -20,7 +20,8 @@ const Speakers = ({speakers}) => {
     }}
     >
         <Heading fontFamily='Space Mono' fontSize='48px'>Speakers</Heading>
-        <SpeakersSlider speakers={speakers}/> 
+        <Text fontFamily='Work Sans' fontStyle='italic'>To be announced</Text>
+        {/* <SpeakersSlider speakers={speakers}/>  */}
     </Box>
     )
 }

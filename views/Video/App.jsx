@@ -18,7 +18,7 @@ const Video = ({video}) => {
         fluid={true}
         muted={true}
         poster={thumbnail}
-        src={uploadedVideo}
+        // src={uploadedVideo}
         >
         <BigPlayButton position="center" />
         <ControlBar autoHide={false} />
