@@ -39,7 +39,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         maxW='7xl'
         mt='112px'
         >
-          <Heading textAlign='center' textTransform='capitalize'>Did we mention these cool swags?</Heading>
+          <Heading px='6' textAlign='center' textTransform='capitalize'>Did we mention these cool swags?</Heading>
           <Marquee speed='120' >
 
             <Box>
@@ -109,6 +109,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
        maxW='6xl'
        mb='120px'
        mx='auto'
+       px='6'
       >
         <Img src='/footer.svg' mx='auto'/>
       </Box>

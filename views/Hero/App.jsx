@@ -71,7 +71,7 @@ const Hero = ({registerForm}) => {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>Sign in</ModalHeader>
+              <ModalHeader>Sign in <Text fontSize='sm' fontWeight='normal' fontStyle='italic'>*You&apos;ll receive your account after you have registered.</Text></ModalHeader>
               <ModalCloseButton />
               <ModalBody>
                {user? null : <SignInModal />}
@@ -112,13 +112,14 @@ const Hero = ({registerForm}) => {
               </Flex>
               <Box
               mt='50px'
-              pt='100px' 
-              backgroundImage={'url(/Hero.svg)'}
+              pt={{base:'0', lg:'100px' }}
+              backgroundImage={{base:'none', lg:'url(/Hero.svg)'}}
               backgroundRepeat='no-repeat'
               backgroundSize='contain'
               backgroundPosition='right'
               >
-                <Heading fontFamily='Space Mono' fontWeight='bold' fontSize='64px' maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
+                <Img display={{base:'block', lg:'none'}} src='/logo.svg'/>
+                <Heading fontFamily='Space Mono' fontWeight='bold' fontSize={{base: '5xl', lg: '64px'}} maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
                 <Heading color='#FFCA27' my='25px' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
                 <Box>
                 {display}

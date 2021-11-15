@@ -27,19 +27,20 @@ const About = ({video}) => {
     mt='112px'
     borderBottomRadius='250px'
     >
-        <HStack spacing='12'>
+        <Flex spacing='12' direction={{base:'column', lg:'row'}} align='center'>
             <Box mt='4' maxW='xl'>
                 <Heading fontFamily='Space Mono' fontSize='48px'>About the program</Heading>
                 <Text
                 fontFamily='Work Sans'
-                mt='25px'
+                my='25px'
+                mr='8'
                 fontSize='24px'
                 >
                 VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.
                 </Text>
             </Box>
             <Video video={video}/>
-        </HStack>
+        </Flex>
     </Box>
     )
 }
