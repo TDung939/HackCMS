@@ -39,6 +39,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         maxW='7xl'
         mt='112px'
         >
+          <Heading textAlign='center' textTransform='capitalize'>Did we mention these cool swags?</Heading>
         <Marquee speed='120' >
           <Box>
             <Img mx='2' src='/swag/shirt_white.jpeg' height='320px' draggable={false}/>
@@ -54,8 +55,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
             <Img mx='2' src='/swag/pin_button.jpeg' height='320px' draggable={false}/>
             <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Pin Buttons</Text>
           </Box>
-          
-          {/* <Img mx='2' src='/swag/shirt_black.jpeg' height='320px' draggable={false}/> */}
+        
           <Box>
             <Img mx='2' src='/swag/canvas_bag.jpeg' height='320px' draggable={false}/>
             <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Tote Bags</Text>

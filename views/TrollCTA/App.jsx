@@ -32,16 +32,16 @@ const TrollCTA = ({registerForm}) => {
             case 5: {setButtonText('Gotcha hahaha'); break;}
             case 6: {setButtonText('Wow you are very persistent'); break;}
             case 7: {setButtonText('I like you. Have fun then!'); break;}
-            case 8: {window.open(registerForm.registerUrl, "_blank"); break;}
-            case 9: {setButtonText('Erm... you still here?'); break;}
-            case 10: {setButtonText('Go sign up...'); break;}
-            case 11: {setButtonText('This is getting old...'); break;}
-            case 12: {setButtonText("It's not fun anymore"); break;}
-            case 13: {setButtonText("Stop it! Stop Clicking!"); break;}
-            case 14: {setButtonText("..."); break;}
-            case 15: {setButtonText("Ok... you got me..."); break;}
-            case 16: {setButtonText("Here's the prize for being the most annoying person"); break;}
-            case 17: {Router.push('https://youtu.be/dQw4w9WgXcQ'); break;}
+            case 8: {Router.push(registerForm.registerUrl); break;}
+            // case 9: {setButtonText('Erm... you still here?'); break;}
+            // case 10: {setButtonText('Go sign up...'); break;}
+            // case 11: {setButtonText('This is getting old...'); break;}
+            // case 12: {setButtonText("It's not fun anymore"); break;}
+            // case 13: {setButtonText("Stop it! Stop Clicking!"); break;}
+            // case 14: {setButtonText("..."); break;}
+            // case 15: {setButtonText("Ok... you got me..."); break;}
+            // case 16: {setButtonText("Here's the prize for being the most annoying person"); break;}
+            // case 17: {Router.push('https://youtu.be/dQw4w9WgXcQ'); break;}
         }
     }
     return (
