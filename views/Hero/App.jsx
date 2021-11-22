@@ -127,7 +127,7 @@ const Hero = ({registerForm}) => {
               </Box>
              
               <Stack direction={["column", "row"]} mt='32' align='center' justify='center' spacing='12'>
-               <Img src='/logos/vinuni.png' height='30px'/>
+               <Img src='/logos/vinuni.png' height='80px'/>
                <Img src='/logos/vinmaker.png' height='120px'/>
                <Img src='/logos/vrc.png' height='80px'/>
             </Stack>

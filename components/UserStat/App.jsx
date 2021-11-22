@@ -27,17 +27,24 @@ const UserStat = ({data}) => {
         md: 3,
       }}
     >
-      <Stat
-        title="Events"
+       <Stat
+        title="Workshops"
         value={data?.events_attended?.length}
-        accentColor={useColorModeValue('green.500', 'green.300')}
+        accentColor='#FFCA27'
+      >
+        Amet minim mollit non deserunt ullamco est sit aliqua dolor.
+      </Stat>
+      <Stat
+        title="Mini Events"
+        value={data?.events_attended?.length}
+        accentColor='#76E094'
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
       </Stat>
       <Stat
         title="Challenges"
         value={data?.challenges_done?.length}
-        accentColor={useColorModeValue('blue.500', 'blue.300')}
+        accentColor='#C64F4B'
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
       </Stat>

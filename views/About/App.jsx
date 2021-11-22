@@ -36,7 +36,7 @@ const About = ({video}) => {
                 mr='8'
                 fontSize='24px'
                 >
-                VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.
+                VRB: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.
                 </Text>
             </Box>
             <Video video={video}/>
