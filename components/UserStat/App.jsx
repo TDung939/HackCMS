@@ -7,7 +7,7 @@ const UserStat = ({data}) => {
   let workshops = 0; 
   let miniEvents = 0;
   for (var i = 0;  i < eventsAttended?.length; i++) {
-    eventsAttended[i].type == 'workshops'? workshops++ : miniEvents++;
+    eventsAttended[i].type == 'workshop'? workshops++ : miniEvents++;
   }
   return (
   <Stack
