@@ -4,6 +4,11 @@ import { Stat } from './Stat'
 
 const UserStat = ({data}) => {
   const eventsAttended = data?.events_attended
+  let workshops = 0; 
+  let miniEvents = 0;
+  for (var i = 0;  i < eventsAttended?.length; i++) {
+    eventsAttended[i].type == 'workshops'? workshops++ : miniEvents++;
+  }
   return (
   <Stack
     as="section"
@@ -29,14 +34,14 @@ const UserStat = ({data}) => {
     >
        <Stat
         title="Workshops"
-        value={data?.events_attended?.length}
+        value={workshops}
         accentColor='#FFCA27'
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.
       </Stat>
       <Stat
         title="Mini Events"
-        value={data?.events_attended?.length}
+        value={miniEvents}
         accentColor='#76E094'
       >
         Amet minim mollit non deserunt ullamco est sit aliqua dolor.

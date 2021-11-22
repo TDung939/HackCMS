@@ -20,8 +20,7 @@ const Speakers = ({speakers}) => {
     }}
     >
         <Heading fontFamily='Space Mono' fontSize='48px'>Speakers</Heading>
-        <Text fontFamily='Work Sans' fontStyle='italic'>To be announced</Text>
-        {/* <SpeakersSlider speakers={speakers}/>  */}
+        <SpeakersSlider speakers={speakers}/> 
     </Box>
     )
 }

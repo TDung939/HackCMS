@@ -19,7 +19,7 @@ const SpeakersSlider = ({speakers}) => (
         spacingY="16"
       >
         {speakers?.map((speaker, idx) => {
-          const profilePicture = speaker.profile_picture? getStrapiMedia(speaker.profile_picture) : `https://avatars.dicebear.com/api/pixel-art/${speaker.name}.svg`
+          const profilePicture = speaker.profile_picture? getStrapiMedia(speaker.profile_picture) : `https://avatars.dicebear.com/api/initials/${speaker.name}.svg`
           return (
           <Member
             key={idx}
@@ -27,8 +27,6 @@ const SpeakersSlider = ({speakers}) => (
             company={speaker.company}
             profile_picture={profilePicture}
             name={speaker.name}
-            github={speaker.githubUrl}
-            linkedIn={speaker.linkedinUrl}
           >
             {speaker.bio}
           </Member>
