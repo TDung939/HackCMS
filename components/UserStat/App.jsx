@@ -37,29 +37,23 @@ const UserStat = ({data}) => {
         value={workshops}
         accentColor='#FFCA27'
       >
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor.
+        Number of Workshops attended
       </Stat>
       <Stat
         title="Mini Events"
         value={miniEvents}
         accentColor='#76E094'
       >
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor.
+        Number of Mini Events attended
       </Stat>
       <Stat
         title="Challenges"
         value={data?.challenges_done?.length}
         accentColor='#C64F4B'
       >
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor.
+        Number of Challenges completed
       </Stat>
-      {/* <Stat
-        title="No of Challenges"
-        value="2"
-        accentColor={useColorModeValue('pink.500', 'pink.300')}
-      >
-        Amet minim mollit non deserunt ullamco est sit aliqua dolor.
-      </Stat> */}
+
     </SimpleGrid>
   </Stack>
 )}

@@ -13,7 +13,7 @@ export const Member = (props) => {
 
   return (
     <Flex direction="column" align="center" textAlign="center">
-      <Img alt={name} w="40" h="40" rounded="full" border='4px solid #76E094' objectFit="cover" src={profile_picture} />
+      <Img alt={name} draggable={false} w="40" h="40" rounded="full" border='4px solid #76E094' objectFit="cover" src={profile_picture} />
       <Box mt="4">
         <Text fontWeight="bold" fontSize="lg">
           {name}

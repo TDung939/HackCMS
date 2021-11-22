@@ -8,6 +8,7 @@ import UserStat from '@/components/UserStat/App';
 import useSWR from 'swr';
 import axios from 'axios';
 import Seo from '@/components/Seo';
+import Leaderboard from '@/components/Leaderboard/Leaderboard';
 
 const fetcher = url => axios.get(url).then(res => res.data)
 
@@ -27,6 +28,7 @@ export default function Home() {
             <UserCard data={data} />
           </Center>
           <UserStat data={data} />
+          <Leaderboard/>
         </Box>
       </Flex>
     </>
