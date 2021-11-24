@@ -14,6 +14,7 @@ import { Element, animateScroll as scroll } from 'react-scroll'
 import Marquee from "react-fast-marquee";
 import Seo from "@/components/Seo";
 import moment from "moment";
+import Wallpapers from "views/Wallpapers/App";
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
   return (
@@ -101,6 +102,8 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
       <Element name='faq'>
         <Faq faq={faq}/>
       </Element>
+      
+      <Wallpapers/>
 
       <TrollCTA registerForm={registerForm}/>
       <Box
