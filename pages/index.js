@@ -42,12 +42,6 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         >
           <Heading px='6' textAlign='center' textTransform='capitalize'>Did we mention these cool swags?</Heading>
           <Marquee speed='120' >
-
-            <Box>
-              <Img mx='2' src='/swag/stickers.jpeg' height='320px' draggable={false}/>
-              <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Stickers</Text>
-            </Box>
-
             <Box>
               <Img mx='2' src='/swag/pin_button.jpeg' height='320px' draggable={false}/>
               <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>Pin Buttons</Text>
@@ -67,8 +61,6 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
               <Img mx='2' src='/swag/shirt_white.jpeg' height='320px' draggable={false}/>
               <Text px='2' maxW='150px' mx='auto' align='center' fontFamily='Space Mono' fontWeight='bold' rounded='xl' bg='#76E094'>T-Shirts</Text>
             </Box>
-
-            
           </Marquee>
           <Text textAlign='center' mt='16' fontFamily='Work Sans' fontStyle='italic'>*Pictures shown are for illustration purpose only. Actual product may vary.</Text>
       </Box>
