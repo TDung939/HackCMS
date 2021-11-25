@@ -21,6 +21,7 @@ import Countdown from 'react-countdown';
 import UserCard from '@/components/RankFrame';
 import  Router  from 'next/router';
 import Tilt from 'react-parallax-tilt';
+import Banner from '@/components/BannerWithGradient/Banner';
 
 const renderer = ({ days, hours, minutes}) => {
     return <HStack spacing='2' >
@@ -64,10 +65,11 @@ const Hero = ({registerForm}) => {
 
     return (
     <Box
-    mt='8'
+
     as="section"
     >
-        <Box >
+      <Banner/>
+        <Box mt='8'>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
@@ -118,8 +120,9 @@ const Hero = ({registerForm}) => {
               backgroundSize='contain'
               backgroundPosition='right'
               >
-                <Img display={{base:'block', lg:'none'}} src='/logo.svg'/>
-                <Heading fontFamily='Space Mono' fontWeight='bold' fontSize={{base: '5xl', lg: '64px'}} maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
+                
+                <Img display={{base:'block', lg:'none'}} src='/HeroMobile.png'/>
+                <Heading display={{base:'none', lg:'block'}} fontFamily='Space Mono' fontWeight='bold' fontSize={{base: '5xl', lg: '64px'}} maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
                 <Heading color='#FFCA27' my='25px' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
                 <Box>
                 {display}
