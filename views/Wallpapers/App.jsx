@@ -16,10 +16,13 @@ const Wallpapers = () => (
   mt='112px'
   >
     <Heading fontFamily='Space Mono' fontSize='48px' fontWeight='bold' maxW='4xl'>Desktop Wallpapers</Heading>
-    <Flex>
+    <Flex
+    direction = {{base:'column', lg:'row'}}
+    pos='relative'
+    >
       <Center
         py="8"
-        mr="8"
+        mr={{base:'0', lg:"8"}}
         rounded={{
           md: 'lg',
         }}
