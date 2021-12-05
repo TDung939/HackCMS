@@ -95,16 +95,15 @@ const Hero = ({registerForm}) => {
               <Flex justify='space-between' align='center' display={{base:'none', lg:'flex'}}>
                 <Img src='/logo.svg' height='80px'/>
                 <HStack fontFamily='Work Sans' fontWeight='semibold' fontSize='18px' spacing='12' cursor='pointer'>
-                  <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
-                    <Text>About</Text>
-                  </Link>
 
-                  <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
+                <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>Schedule</Text>
+                  </Link>
+                <Link activeClass="active" to={'speakers'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>Speakers</Text>
                   </Link>
-
-                  <Link activeClass="active" to={'schedule'} spy={true} smooth={true} offset={0} duration={500}>
-                    <Text>Schedule</Text>
+                  <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>About</Text>
                   </Link>
 
                   <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>

@@ -25,6 +25,32 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
       </Box>
       
       <Hero registerForm={registerForm}/>
+
+      <Element name='schedule'>
+        <Box
+        as='section'
+        px={{
+            base: '6',
+            md: '8',
+        }}
+        py='8'
+        pos='relative'
+        maxW='6xl'
+        mx='auto'
+        mt='112px'
+        >
+          <Heading fontFamily='Space Mono' fontSize='48px'>Week Schedule</Heading>
+          <Text fontFamily='Work Sans' fontStyle='italic'>Subject to change</Text>
+          <Text fontFamily='Work Sans' fontStyle='italic'>Last updated: {moment(schedule[0].updated_at).format('DD, MMMM, YYYY')}</Text>
+          <ScheduleComponent />
+        </Box>
+      </Element>
+
+
+      <Element name='speakers'>
+        <Speakers speakers={speakers} />
+      </Element>
+      
       
       <Element name='about'>
         <About video={introVideo}/>
@@ -66,30 +92,6 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
       </Box>
     
 
-      <Element name='speakers'>
-        <Speakers speakers={speakers} />
-      </Element>
-      
-
-      <Element name='schedule'>
-        <Box
-        as='section'
-        px={{
-            base: '6',
-            md: '8',
-        }}
-        py='8'
-        pos='relative'
-        maxW='6xl'
-        mx='auto'
-        mt='112px'
-        >
-          <Heading fontFamily='Space Mono' fontSize='48px'>Week Schedule</Heading>
-          <Text fontFamily='Work Sans' fontStyle='italic'>Subject to change</Text>
-          <Text fontFamily='Work Sans' fontStyle='italic'>Last updated: {moment(schedule[0].updated_at).format('DD, MMMM, YYYY')}</Text>
-          <ScheduleComponent />
-        </Box>
-      </Element>
 
       <Element name='faq'>
         <Faq faq={faq}/>

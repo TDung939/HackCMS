@@ -9,7 +9,8 @@ SimpleGrid,
 Stack,
 Text,
 useColorModeValue as mode,
-useToast
+useToast,
+Link
 } from '@chakra-ui/react'
 import * as React from 'react'
 import ReactPlayer from 'react-player'
@@ -142,9 +143,9 @@ const EventModalPage = (props) => {
                 >
                 Location
                 </Heading>
-                <Text color={mode('gray.600', 'gray.400')} mt="4">
-                {event.location}
-                </Text>
+                <Link href={event.location? event.location : '#'} isExternal color={mode('gray.600', 'gray.400')} mt="4">
+                {event.location? event.location : 'To be announced'}
+                </Link>
                 <Heading
                 as="h1"
                 size="lg"

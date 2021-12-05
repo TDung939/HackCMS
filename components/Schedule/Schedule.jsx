@@ -55,6 +55,7 @@ export default function ScheduleComponent() {
     style={{
         webkitOverflowScrolling: 'touch',
     }}
+    sx={{'&::-webkit-scrollbar': {display: 'none'}}}
     >
       <Box display= 'inline-block'>
           {daySchedule?.map((item, idx)=>(
