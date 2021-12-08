@@ -22,7 +22,7 @@ import { TableContent } from "@/components/Leaderboard/TableContent";
 const fetcher = url => axios.get(url).then(res => res.data)
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=50`, fetcher, { refreshInterval: 500 })
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=60`, fetcher, { refreshInterval: 500 })
   return (
     <>
       <Seo title='VinUni Research Bootcamp' content='VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.'/>
