@@ -71,11 +71,11 @@ const RankFrame = ({data}) => {
             nextFrame='gold';
             break;
         case 'gold': 
-            maxPoint=2000;
+            maxPoint=3000;
             nextFrame='diamond';
             break;
         case 'diamond': 
-            maxPoint=2000
+            maxPoint=3000
             nextFrame='max'
             break;
     }
