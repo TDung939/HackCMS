@@ -51,10 +51,10 @@ const RankFrame = ({data}) => {
     } else if (data?.experience_point > 400 && data?.experience_point <= 1000) {
         frame = 'silver';
         frameColor = '#B5C0C9';
-    } else if (data?.experience_point > 1000 && data?.experience_point <= 2000) {
+    } else if (data?.experience_point > 1000 && data?.experience_point <= 3000) {
         frame = 'gold';
         frameColor = '#F7E436';
-    } else if (data?.experience_point > 2000) {
+    } else if (data?.experience_point > 3000) {
         frame = 'diamond';
         frameColor = '#6679DC';
     }
