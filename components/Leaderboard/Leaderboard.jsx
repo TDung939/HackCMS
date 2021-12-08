@@ -9,7 +9,7 @@ const fetcher = url => axios.get(url).then(res => res.data)
 
 
 const Leaderboard = () => {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=60`, fetcher, { refreshInterval: 500 })
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=50`, fetcher, { refreshInterval: 500 })
   return (
     <Box as="section" py="12">
       <Box
