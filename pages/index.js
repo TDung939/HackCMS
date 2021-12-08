@@ -8,15 +8,21 @@ import TrollCTA from "views/TrollCTA/App";
 import { fetchAPI } from '@/lib/api';
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
-import { Box, Heading, Img, Text } from '@chakra-ui/react'
+import { Box, Heading, Img, Text, Spinner } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
 import { Element, animateScroll as scroll } from 'react-scroll'
 import Marquee from "react-fast-marquee";
 import Seo from "@/components/Seo";
 import moment from "moment";
 import Wallpapers from "views/Wallpapers/App";
+import useSWR from 'swr'
+import axios from 'axios'
+import { TableContent } from "@/components/Leaderboard/TableContent";
+
+const fetcher = url => axios.get(url).then(res => res.data)
 
 export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=50`, fetcher, { refreshInterval: 500 })
   return (
     <>
       <Seo title='VinUni Research Bootcamp' content='VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.'/>
@@ -91,8 +97,29 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
           <Text textAlign='center' mt='16' fontFamily='Work Sans' fontStyle='italic'>*Pictures shown are for illustration purpose only. Actual product may vary.</Text>
       </Box>
     
+      <Element name='leaderboard'>
+      <Box as="section" py="12">
+      <Box
+        maxW={{
+          base: 'xl',
+          md: '7xl',
+        }}
+        mx="auto"
+        px={{
+          base: '6',
+          md: '8',
+        }}
+      >
+        <Box overflowX="auto">
+          <Heading size="lg" mb="6">
+            Leaderboard
+          </Heading>
+          {!error && !data? <Spinner size='xl' /> : <TableContent data={data}/>}
 
-
+        </Box>
+      </Box>
+    </Box>
+    </Element>
       <Element name='faq'>
         <Faq faq={faq}/>
       </Element>

@@ -105,7 +105,9 @@ const Hero = ({registerForm}) => {
                   <Link activeClass="active" to={'about'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>About</Text>
                   </Link>
-
+                  <Link activeClass="active" to={'leaderboard'} spy={true} smooth={true} offset={0} duration={500}>
+                    <Text>Leaderboard</Text>
+                  </Link>
                   <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>FAQ</Text>
                   </Link>
