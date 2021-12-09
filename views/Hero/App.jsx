@@ -9,18 +9,13 @@ useDisclosure
 } from '@chakra-ui/react'
 import PrimaryButton from '../../components/PrimaryButton'
 import SecondaryButton from '../../components/SecondaryButton'
-import { useWindowSize } from '../../lib/window'
-import Marquee from "react-fast-marquee";
 import React from 'react'
 import { SignInModal } from '@/components/SignInModal';
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
 // import Link from 'next/link';
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-import Countdown from 'react-countdown';
-import UserCard from '@/components/RankFrame';
 import  Router  from 'next/router';
-import Tilt from 'react-parallax-tilt';
 import Banner from '@/components/BannerWithGradient/Banner';
 
 const renderer = ({ days, hours, minutes}) => {
@@ -43,7 +38,6 @@ const renderer = ({ days, hours, minutes}) => {
 };
 
 const Hero = ({registerForm}) => {
-    const {width, windowHeight} = useWindowSize();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const {user, logout} = useContext(AuthContext)
 
