@@ -48,19 +48,16 @@ const Hero = ({registerForm}) => {
     const {user, logout} = useContext(AuthContext)
 
     let display;
+
     if (user) {
       display= (
-      <Stack mt={{base: '4', lg: '8'}}  spacing='8' direction={{base:'column', lg:'row'}}>
+      <Stack mt={{base: '4', lg: '8'}}  direction='column'>
         <PrimaryButton zIndex='2' onClick={() => Router.push('/dashboard')}>DASHBOARD</PrimaryButton>
         <SecondaryButton zIndex='2'  onClick={() => logout()}>SIGN OUT</SecondaryButton>
       </Stack>
       )
     } else {
-      display= (
-      <Stack mt={{base: '4', lg: '8'}}  spacing='8' direction={{base:'column', lg:'row'}}>
-        <PrimaryButton zIndex='2' onClick={()=>Router.push(registerForm.registerUrl)}>REGISTER</PrimaryButton>
-        <SecondaryButton zIndex='2' onClick={onOpen}>SIGN IN</SecondaryButton>
-      </Stack>)
+      display= (<SecondaryButton zIndex='2' onClick={onOpen}>SIGN IN</SecondaryButton>)
     }
 
     return (
@@ -111,6 +108,7 @@ const Hero = ({registerForm}) => {
                   <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>FAQ</Text>
                   </Link>
+                  {display}
                 </HStack>
               </Flex>
               <Box
@@ -123,18 +121,16 @@ const Hero = ({registerForm}) => {
               >
                 
                 <Img display={{base:'block', lg:'none'}} src='/HeroMobile.png'/>
-                <Heading display={{base:'none', lg:'block'}} fontFamily='Space Mono' fontWeight='bold' fontSize={{base: '5xl', lg: '64px'}} maxW='962px'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
-                <Heading color='#FFCA27' my='25px' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
-                <Box>
-                {display}
-                </Box>
+                <Heading display={{base:'none', lg:'block'}} fontFamily='Space Mono' fontWeight='bold' fontSize={{base: '5xl', lg: '6xl'}} maxW='3xl'>VinUni Research Bootcamp: <span style={{color:'#76E094'}}>Kickstart</span></Heading>
+                <Heading textAlign={{base:'center', lg:'left'}} color='#FFCA27' my='25px' fontFamily='Raleway'>DECEMBER 5 - 12, 2021</Heading>
+
+                <Stack direction={["column", "row"]} mt='2' align='center' justify={{base:'center', lg:'left'}} spacing='12'>
+                  <Img src='/logos/vinuni.png' height='56px'/>
+                  <Img src='/logos/vinmaker.png' height='90px'/>
+                  <Img src='/logos/vrc.png' height='56px'/>
+                </Stack>
               </Box>
-             
-              <Stack direction={["column", "row"]} mt='32' align='center' justify='center' spacing='12'>
-               <Img src='/logos/vinuni.png' height='80px'/>
-               <Img src='/logos/vinmaker.png' height='120px'/>
-               <Img src='/logos/vrc.png' height='80px'/>
-            </Stack>
+              
             </Box>
             
         </Box>

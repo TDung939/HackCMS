@@ -6,17 +6,17 @@ const PrimaryButton = (props) => {
     <Button
     color='#221F20'
     bg='#FCCE44'
-    py='8'
-    px='12'
+    py='4'
+    px='6'
     rounded='none'
     fontFamily='Raleway'
     fontWeight='800'
-    border='8px solid white'
-    fontSize='xl'
-    boxShadow=' -10px 8px 0px 1px black'
+    border='6px solid white'
+    fontSize='md'
+    boxShadow=' -6px 4px 0px 1px black'
     _hover={{
-      transform:'translate(-5px, 4px)',
-      boxShadow:' -5px 4px 0px 1px black'
+      transform:'translate(-4px, 2px)',
+      boxShadow:' -4px 2px 0px 1px black'
     }}
     {...props}
     />

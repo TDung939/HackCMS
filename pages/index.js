@@ -43,11 +43,11 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
         pos='relative'
         maxW='6xl'
         mx='auto'
-        mt='112px'
+        mt='12'
         >
           <Heading fontFamily='Space Mono' fontSize='48px'>Week Schedule</Heading>
-          <Text fontFamily='Work Sans' fontStyle='italic'>Subject to change</Text>
-          <Text fontFamily='Work Sans' fontStyle='italic'>Last updated: {moment(schedule[0].updated_at).format('DD, MMMM, YYYY')}</Text>
+          <Text fontFamily='Work Sans' fontWeight='bold' fontStyle='italic' fontSize={{base:'lg', lg:'xl'}}>To view live broadcasts or recordings, click on the boxes.</Text>
+          <Text fontFamily='Work Sans' fontStyle='italic' fontSize={{base:'lg', lg:'xl'}}>Last updated: {moment(schedule[0].updated_at).format('DD, MMMM, YYYY')}</Text>
           <ScheduleComponent />
         </Box>
       </Element>

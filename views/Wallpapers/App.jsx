@@ -15,7 +15,7 @@ const Wallpapers = () => (
   mx='auto'
   mt='112px'
   >
-    <Heading fontFamily='Space Mono' fontSize='48px' fontWeight='bold' maxW='4xl'>Desktop Wallpapers</Heading>
+    <Heading fontFamily='Space Mono' fontSize='48px' fontWeight='bold' maxW='4xl'>Virtual Backgrounds</Heading>
     <Flex
     direction = {{base:'column', lg:'row'}}
     pos='relative'
