@@ -2,7 +2,7 @@ import { Box, Heading } from '@chakra-ui/react'
 import TalkCard from './TalkCard';
 import useSWR from 'swr';
 import axios from 'axios';
-
+import { schedule } from '@/data/_schedule';
 const fetcher = url => axios.get(url).then(res => res.data)
 
 function StageRow(props) {
@@ -45,8 +45,7 @@ function StageRow(props) {
 
 
 export default function ScheduleComponent() {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/schedule`, fetcher, { refreshInterval: 500 })
-  const daySchedule = data? data[0].day_schedule : null
+  const daySchedule = schedule[0].day_schedule
 
   return (
     <Box

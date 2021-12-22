@@ -109,7 +109,7 @@ export default function TalkCard({ event, showTime}) {
                     >
                     <AvatarGroup size="sm" max={2}>
                         {event.hosts.map((host, idx)=>{
-                        const profilePicture = host.profile_picture? getStrapiMedia(host.profile_picture) : ''
+                        const profilePicture = host.profile_picture?.url
                         return (
                             <Avatar border='none' key={idx} name={host.name} src={profilePicture} />
                         )

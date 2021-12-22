@@ -1,20 +1,6 @@
-import { Box, Text, Heading, Img, Stack, Flex, HStack, Center,
-Modal,
-ModalOverlay,
-ModalContent,
-ModalHeader,
-ModalBody,
-ModalCloseButton,
-useDisclosure
-} from '@chakra-ui/react'
-import PrimaryButton from '../../components/PrimaryButton'
-import SecondaryButton from '../../components/SecondaryButton'
+import { Box, Text, Heading, Img, Stack, Flex, HStack } from '@chakra-ui/react'
 import React from 'react'
-import { SignInModal } from '@/components/SignInModal';
-import AuthContext from "@/context/AuthContext";
-import { useContext } from 'react'
-// import Link from 'next/link';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link, Button, Element, Events, animateScroll as scroll } from 'react-scroll'
 import  Router  from 'next/router';
 import Banner from '@/components/BannerWithGradient/Banner';
 
@@ -38,39 +24,12 @@ const renderer = ({ days, hours, minutes}) => {
 };
 
 const Hero = ({registerForm}) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const {user, logout} = useContext(AuthContext)
-
-    let display;
-
-    if (user) {
-      display= (
-      <Stack mt={{base: '4', lg: '8'}}  direction='column'>
-        <PrimaryButton zIndex='2' onClick={() => Router.push('/dashboard')}>DASHBOARD</PrimaryButton>
-        <SecondaryButton zIndex='2'  onClick={() => logout()}>SIGN OUT</SecondaryButton>
-      </Stack>
-      )
-    } else {
-      display= (<SecondaryButton zIndex='2' onClick={onOpen}>SIGN IN</SecondaryButton>)
-    }
-
     return (
     <Box
-
     as="section"
     >
       <Banner/>
         <Box mt='8'>
-          <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>Sign in <Text fontSize='sm' fontWeight='normal' fontStyle='italic'>*You&apos;ll receive your account after you have registered.</Text></ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-               {user? null : <SignInModal />}
-              </ModalBody>
-            </ModalContent>
-          </Modal>
             <Box
             maxW={{
                 base: 'xl',
@@ -102,7 +61,6 @@ const Hero = ({registerForm}) => {
                   <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>FAQ</Text>
                   </Link>
-                  {display}
                 </HStack>
               </Flex>
               <Box

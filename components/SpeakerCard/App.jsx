@@ -10,7 +10,7 @@ import { Card } from './Card'
 
 const SpeakerCard = (props) => {
   const {host} = props;
-  const profilePicture = host.profile_picture? getStrapiMedia(host.profile_picture) : ''
+  const profilePicture = host.profile_picture?.url
   return (
     <Card>
       <Stack
