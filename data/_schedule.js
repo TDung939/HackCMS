@@ -3879,7 +3879,7 @@ export const schedule = [
   {
   id: 31,
   title: "Presentation Day & Closing Ceremony",
-  descriptions: "Game on! during which students will present their project proposals and exhibit the knowledge learned through our fantastic and bright speakers' valuable and educational series of workshops.",
+  descriptions: "Game on! On this day, students will present their project proposals and exhibit the knowledge learned through our fantastic and bright speakers' valuable and educational series of workshops.",
   magicCode: "GameOver",
   isMagicCodeExpired: true,
   experience_point: 200,
@@ -3960,7 +3960,7 @@ export const schedule = [
   hosts: [
   {
   id: 5,
-  name: "Participants",
+  name: "All participants",
   job_position: "Speaker",
   company: "VRB: KICKSTART",
   bio: "Amazing participants who have submited their proposals for presentation",

@@ -5,7 +5,7 @@ import { getStrapiMedia } from '@/lib/media'
 export const User = (props) => {
   console.log(props)
   const { profile_image, username, email } = props.data
-  const profilePicture = profile_image? getStrapiMedia(profile_image) : ''
+  const profilePicture = profile_image?.url
   return (
     <Stack direction="row" spacing="4" align="center">
       <Box flexShrink={0} h="10" w="10">
