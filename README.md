@@ -1,1 +1,1 @@
-Static site for VRB
+Static site for Vinuni Research Bootcamp
