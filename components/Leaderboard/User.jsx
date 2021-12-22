@@ -3,7 +3,6 @@ import * as React from 'react'
 import { getStrapiMedia } from '@/lib/media'
 
 export const User = (props) => {
-  console.log(props)
   const { profile_image, username, email } = props.data
   const profilePicture = profile_image?.url
   return (
