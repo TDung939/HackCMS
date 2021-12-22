@@ -42,7 +42,6 @@ export const TableContent = ({data}) => {
                  cell = row[column.accessor]
                }
               const element = column.Cell?.(cell) ?? cell
-              console.log(cell)
               return (
                 <Td whiteSpace="nowrap" key={index}>
                   {element}
