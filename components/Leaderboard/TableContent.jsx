@@ -12,7 +12,6 @@ import * as React from 'react'
 import { columns } from './_data'
 
 export const TableContent = ({data}) => {
-  console.log(data)
   return (
     <Table my="8" borderWidth="1px" fontSize="sm">
       <Thead bg={mode('gray.50', 'gray.800')}>

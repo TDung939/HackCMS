@@ -1,4 +1,3 @@
-import { getStrapiMedia } from '@/lib/media'
 import { Box, SimpleGrid } from '@chakra-ui/react'
 import * as React from 'react'
 import { Member } from './Member'
@@ -19,7 +18,7 @@ const SpeakersSlider = ({speakers}) => (
         spacingY="16"
       >
         {speakers?.map((speaker, idx) => {
-          const profilePicture = speaker.profile_picture? getStrapiMedia(speaker.profile_picture) : `https://avatars.dicebear.com/api/initials/${speaker.name}.svg`
+          const profilePicture = speaker.profile_picture.url
           return (
           <Member
             key={idx}

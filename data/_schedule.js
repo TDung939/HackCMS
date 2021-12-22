@@ -3879,7 +3879,7 @@ export const schedule = [
   {
   id: 31,
   title: "Presentation Day & Closing Ceremony",
-  descriptions: "Game on!",
+  descriptions: "Game on! during which students will present their project proposals and exhibit the knowledge learned through our fantastic and bright speakers' valuable and educational series of workshops.",
   magicCode: "GameOver",
   isMagicCodeExpired: true,
   experience_point: 200,
@@ -3960,10 +3960,10 @@ export const schedule = [
   hosts: [
   {
   id: 5,
-  name: "To Be Announced",
+  name: "Participants",
   job_position: "Speaker",
   company: "VRB: KICKSTART",
-  bio: "This mystery speaker will be announced soon. Stay tuned!",
+  bio: "Amazing participants who have submited their proposals for presentation",
   linkedinUrl: null,
   githubUrl: null,
   type: "event_volunteer",

@@ -5,7 +5,6 @@ import Activities from "views/Activities/App";
 import Speakers from "views/Speakers/App";
 import Faq from "views/FAQ/App";
 import TrollCTA from "views/TrollCTA/App";
-import { fetchAPI } from '@/lib/api';
 import { Box, Heading, Img, Text, Spinner } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
 import { Element, animateScroll as scroll } from 'react-scroll'

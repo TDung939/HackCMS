@@ -15,70 +15,12 @@ Link
 import * as React from 'react'
 import ReactPlayer from 'react-player'
 import SpeakerCard from '../SpeakerCard/App'
-import AuthContext from '@/context/AuthContext'
-import { useContext } from 'react'
-import axios from 'axios'
-import { useState } from 'react'
-import useSWR from 'swr';
-
-const fetcher = url => axios.get(url).then(res => res.data)
 
 const EventModalPage = (props) => {
     const { event } = props
-    const coverImage = event.cover_image? getStrapiMedia(event.cover_image) : '/placeholder.png'
-    const {user} = useContext(AuthContext)
-    const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/${user?.id}`, fetcher, { refreshInterval: 500 })
-    const [magicCode, setMagicCode] = useState('')
+    const coverImage = event.cover_image.url
     const toast = useToast();
 
-    const handleUpdatePoint= async () => {
-        let array = [];
-        for (const event_attended of data.events_attended) {
-            array.push(event_attended.id);
-        }
-        console.log(array)
-        if (!array.includes(event.id)) {
-            if (magicCode == event.magicCode && !event.isMagicCodeExpired) {
-                array.push(event.id);
-                try {
-                const res = await axios.put(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users/${data.id}`, 
-                {
-                    experience_point: data?.experience_point + event.experience_point,
-                    events_attended: array
-                }
-                );
-                toast({
-                    position: 'top',
-                    title: `Congratualations!`,
-                    description: `Amazing! Your experience points just increase by ${event.experience_point}`,
-                    status: "success",
-                    duration: 5000,
-                    isClosable: true,
-                })
-                } catch (err) {
-                console.log(err)
-                }
-            } else {
-                toast({
-                    position: 'top',
-                    title: "Your magic code is incorrect or no longer available.",
-                    description: "Please try again!",
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            }
-        } else {
-            toast({
-                position: 'top',
-                title: "You've already submited the code",
-                description: "Again, thanks for attending the events!",
-                status: "error",
-                duration: 5000,
-                isClosable: true,
-              })
-        }
-    }
 
     return (
         <Box as="section" pb="24">
@@ -156,30 +98,6 @@ const EventModalPage = (props) => {
                 <Text color={mode('gray.600', 'gray.400')} mt="4">
                 {event.descriptions}
                 </Text>
-                {user? <Stack
-                direction={{
-                    base: 'column',
-                    md: 'row',
-                }}
-                spacing="4"
-                mt="8"
-                >
-                    <Input
-                    placeholder='Magic Code 🧙‍♂️'
-                    type="text"  
-                    value={magicCode}  
-                    id="magicCode" 
-                    onChange={(e) => setMagicCode(e.target.value)}
-                    />
-                    <Button
-                    height="14"
-                    px="8"
-                    shadow="base"
-                    onClick={handleUpdatePoint}
-                    >
-                    Submit
-                    </Button>
-                </Stack> : null}
             </Box>
             </Stack>
             <Box mt='8'>

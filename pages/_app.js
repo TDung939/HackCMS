@@ -1,7 +1,6 @@
 
 import * as React from 'react'
 import { ChakraProvider, CSSReset, theme } from '@chakra-ui/react'
-import {AuthProvider} from '../context/AuthContext'
 import { ParallaxProvider } from 'react-scroll-parallax';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NextNprogress from 'nextjs-progressbar';
@@ -20,7 +19,6 @@ function MyApp({ Component, pageProps }) {
   <ChakraProvider theme={newTheme}>
       <CSSReset />
         <ParallaxProvider>
-        <AuthProvider>
           <NextNprogress
             color="#76E094"
             startPosition={0.3}
@@ -29,7 +27,6 @@ function MyApp({ Component, pageProps }) {
             showOnShallow={true}
           />
           <Component {...pageProps} />
-          </AuthProvider>
         </ParallaxProvider>
   </ChakraProvider>
   )
