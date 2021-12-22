@@ -6,8 +6,6 @@ import Speakers from "views/Speakers/App";
 import Faq from "views/FAQ/App";
 import TrollCTA from "views/TrollCTA/App";
 import { fetchAPI } from '@/lib/api';
-import AuthContext from "@/context/AuthContext";
-import { useContext } from 'react'
 import { Box, Heading, Img, Text, Spinner } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
 import { Element, animateScroll as scroll } from 'react-scroll'
@@ -15,14 +13,16 @@ import Marquee from "react-fast-marquee";
 import Seo from "@/components/Seo";
 import moment from "moment";
 import Wallpapers from "views/Wallpapers/App";
-import useSWR from 'swr'
-import axios from 'axios'
 import { TableContent } from "@/components/Leaderboard/TableContent";
+import { leaderboard } from '../data/_leaderboard'
+import { speakers } from '../data/_speakers'
+import { faq } from '../data/_faq'
+import { schedule } from '../data/_schedule'
+import { introVideo } from '../data/_introVideo'
+import { registerForm } from '../data/_registerForm'
 
-const fetcher = url => axios.get(url).then(res => res.data)
-
-export default function Home({speakers, faq, schedule, introVideo, registerForm}) {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_STRAPI_URL}/users?_sort=experience_point:DESC&_limit=50`, fetcher, { refreshInterval: 500 })
+export default function Home() {
+  
   return (
     <>
       <Seo title='VinUni Research Bootcamp' content='VRW: Kickstart is your opportunity to spend a week focused on learning the researching skills you’ve always wanted to tackle. In accepting this quest, you are in for an adventure featuring workshops, fun mini-events, challenges, panels, and more.'/>
@@ -114,7 +114,7 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
           <Heading size="lg" mb="6">
             Leaderboard
           </Heading>
-          {!error && !data? <Spinner size='xl' /> : <TableContent data={data}/>}
+         <TableContent data={leaderboard}/>
 
         </Box>
       </Box>
@@ -140,15 +140,4 @@ export default function Home({speakers, faq, schedule, introVideo, registerForm}
 
     </>
   )
-}
-
-export async function getServerSideProps({context, req }) {
-  const [speakers, schedule, faq, introVideo, registerForm] = await Promise.all([
-    fetchAPI("/volunteers?type=speaker"),
-    fetchAPI("/schedule"),
-    fetchAPI("/faq"),
-    fetchAPI("/introduction-video"),
-    fetchAPI("/register-form")
-  ]);
-  return { props: { speakers, schedule, faq, introVideo, registerForm }};
 }

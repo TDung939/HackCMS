@@ -41,19 +41,6 @@ const Hero = ({registerForm}) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const {user, logout} = useContext(AuthContext)
 
-    let display;
-
-    if (user) {
-      display= (
-      <Stack mt={{base: '4', lg: '8'}}  direction='column'>
-        <PrimaryButton zIndex='2' onClick={() => Router.push('/dashboard')}>DASHBOARD</PrimaryButton>
-        <SecondaryButton zIndex='2'  onClick={() => logout()}>SIGN OUT</SecondaryButton>
-      </Stack>
-      )
-    } else {
-      display= (<SecondaryButton zIndex='2' onClick={onOpen}>SIGN IN</SecondaryButton>)
-    }
-
     return (
     <Box
 
@@ -102,7 +89,6 @@ const Hero = ({registerForm}) => {
                   <Link activeClass="active" to={'faq'} spy={true} smooth={true} offset={0} duration={500}>
                     <Text>FAQ</Text>
                   </Link>
-                  {display}
                 </HStack>
               </Flex>
               <Box
