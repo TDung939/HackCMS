@@ -5,7 +5,7 @@ import Activities from "views/Activities/App";
 import Speakers from "views/Speakers/App";
 import Faq from "views/FAQ/App";
 import TrollCTA from "views/TrollCTA/App";
-import { Box, Heading, Img, Text, Spinner } from '@chakra-ui/react'
+import { Box, Heading, Img, Text, Link } from '@chakra-ui/react'
 import ScheduleComponent from "@/components/Schedule/Schedule";
 import { Element, animateScroll as scroll } from 'react-scroll'
 import Marquee from "react-fast-marquee";
@@ -135,8 +135,8 @@ export default function Home() {
        px='6'
       >
         <Img src='/footer.svg' mx='auto'/>
+        <Text mt='12'  size='xs' textAlign='center'>© VinUni Research Bootcamp 2021 — Developed & designed by <Link isExternal href="https://trungdung.vinmaker.org/">Nguyen Hoang Trung Dung.</Link></Text>
       </Box>
-
     </>
   )
 }
