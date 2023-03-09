@@ -1,9 +1,6 @@
 import { Box, Heading } from '@chakra-ui/react'
 import TalkCard from './TalkCard';
-import useSWR from 'swr';
-import axios from 'axios';
 import { schedule } from '@/data/_schedule';
-const fetcher = url => axios.get(url).then(res => res.data)
 
 function StageRow(props) {
   const allEvents = props.data;

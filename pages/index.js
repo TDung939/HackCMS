@@ -58,7 +58,7 @@ export default function Home() {
       
       
       <Element name='about'>
-        <About video={introVideo}/>
+        <About />
       </Element>
 
       <Activities />

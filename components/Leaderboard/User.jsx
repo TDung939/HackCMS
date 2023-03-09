@@ -1,6 +1,5 @@
 import { Box, Stack, Avatar } from '@chakra-ui/react'
 import * as React from 'react'
-import { getStrapiMedia } from '@/lib/media'
 
 export const User = (props) => {
   const { profile_image, username, email } = props.data
