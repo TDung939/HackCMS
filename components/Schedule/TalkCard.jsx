@@ -9,7 +9,6 @@ import { Box, Text, Heading, AvatarGroup, Avatar, Badge,
 } from '@chakra-ui/react'
 import { useState, useEffect } from 'react';
 import { parseISO, isBefore, format, isAfter } from 'date-fns'
-import { getStrapiMedia } from '@/lib/media';
 import EventModalPage from './EventModalPage';
 
 

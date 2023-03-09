@@ -1,9 +1,6 @@
 import { Box, Img, Flex, Heading, Text, Icon, Progress, Center } from '@chakra-ui/react'
 import AuthContext from "@/context/AuthContext";
 import { useContext } from 'react'
-import { getStrapiMedia, uploadStrapiMedia } from '@/lib/media';
-import useSWR from 'swr';
-import axios from 'axios';
 import { FaShieldAlt } from 'react-icons/fa';
 import { useCallback } from 'react';
 import {useDropzone} from 'react-dropzone';

@@ -44,7 +44,6 @@ const TrollCTA = ({registerForm}) => {
                 {buttonText}
                 </ButtonCTA>
                 </Center>
-                <Text mt='12' textAlign='center'>© VinUni Research Bootcamp 2021 — <Link as='marker'>Code of Conduct</Link></Text>
             </Box>
            
         </Box>

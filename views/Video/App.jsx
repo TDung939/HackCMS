@@ -1,11 +1,10 @@
-import { getStrapiMedia } from '@/lib/media';
 import { Box } from '@chakra-ui/react'
 import * as React from 'react'
 import { Player, BigPlayButton, ControlBar, PosterImage } from 'video-react';
 
 const Video = ({video}) => {
-    const thumbnail = video.thumbnail? getStrapiMedia(video.thumbnail) : ''
-    const uploadedVideo = video.video? getStrapiMedia(video.video) : video?.videoUrl
+    const thumbnail = ''
+    const uploadedVideo = ''
     return (
     <Box 
     as="section" 

@@ -1,4 +1,3 @@
-import { getStrapiMedia } from '@/lib/media';
 import {
   Avatar,
   Box,

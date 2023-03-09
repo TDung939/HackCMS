@@ -1,5 +1,4 @@
 import { Box, Flex, keyframes, usePrefersReducedMotion, HStack, Text, Center, Img } from '@chakra-ui/react'
-import Router from 'next/router'
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-scroll'
